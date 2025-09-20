@@ -31,6 +31,15 @@ Plateau >> initialize [
 ]
 
 { #category : 'as yet unclassified' }
+Plateau >> moveRover: aString [
+	aString do: [ :each |
+        each = $L ifTrue: [ rover turnLeft ].
+        each = $R ifTrue: [ rover turnRight ].
+        each = $M ifTrue: [ rover moveForward ].
+    ].
+]
+
+{ #category : 'as yet unclassified' }
 Plateau >> placeRover: aRover atX: aX atY: aY looking: aDirection [
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"
@@ -39,6 +48,18 @@ Plateau >> placeRover: aRover atX: aX atY: aY looking: aDirection [
 	rover x: aX.
 	rover y: aY.
 	rover direction: aDirection .
+]
+
+{ #category : 'accessing' }
+Plateau >> rover [
+
+	^ rover
+]
+
+{ #category : 'accessing' }
+Plateau >> rover: anObject [
+
+	rover := anObject
 ]
 
 { #category : 'accessing' }
